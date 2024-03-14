@@ -17,7 +17,7 @@ Mô hình được đào tạo dựa trên kiến trúc của mô hình đa phư
 * Mô hình được huấn luyện trên [google colab](https://colab.research.google.com/) với GPU A100
 
 ```python
-!python Fim1/finetune.py --vision_encoder_path "ViT-L-14" \
+!python finetune.py --vision_encoder_path "ViT-L-14" \
                    --vision_encoder_pretrained "openai" \
                    --lm_path 'vilm/vietcuna-3b-v2' \
                    --tokenizer_path 'vilm/vietcuna-3b-v2' \
