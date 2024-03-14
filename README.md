@@ -10,5 +10,24 @@ Mô hình được đào tạo dựa trên kiến trúc của mô hình đa phư
 
 ## Demo
 ![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(1).png)
-![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(2).png)
 ![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(3).png)
+![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(2).png)
+
+## Huấn luyện mô hình
+* Mô hình được huấn luyện trên [google colab](https://colab.research.google.com/) với GPU A100
+
+```python
+!python Fim1/finetune.py --vision_encoder_path "ViT-L-14" \
+                   --vision_encoder_pretrained "openai" \
+                   --lm_path 'vilm/vietcuna-3b-v2' \
+                   --tokenizer_path 'vilm/vietcuna-3b-v2' \
+                   --run_name {YOUR_RUN_NAME} \
+                   --num_epochs 1 \
+                   --batch_size 1 \
+                   --delete_previous_checkpoint \
+                   --dataset_config {YOUR_DATACONFIG_PATH} \
+                   --tuning_config {YOUR_LORACONFIG_PATH} \
+                   --report_to_wandb \
+                   --wandb_project wandb_project\
+                   --pretrained_path {YOUR_PRETRAINOPENFLAMINGO_PATH}
+```
