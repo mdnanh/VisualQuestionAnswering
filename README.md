@@ -9,4 +9,4 @@ Mô hình được đào tạo dựa trên kiến trúc của mô hình đa phư
 * Pretrain OpenFlamingo: [openflamingo/OpenFlamingo-9B](https://huggingface.co/openflamingo/OpenFlamingo-9B-deprecated)
 
 ## Demo
-
+![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(1).png)
