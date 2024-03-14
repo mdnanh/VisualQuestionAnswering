@@ -8,3 +8,5 @@ Mô hình được đào tạo dựa trên kiến trúc của mô hình đa phư
 * Visual model: [CLIP](https://github.com/openai/CLIP/tree/main)
 * Pretrain OpenFlamingo: [openflamingo/OpenFlamingo-9B](https://huggingface.co/openflamingo/OpenFlamingo-9B-deprecated)
 
+## Demo
+
