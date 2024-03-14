@@ -10,3 +10,5 @@ Mô hình được đào tạo dựa trên kiến trúc của mô hình đa phư
 
 ## Demo
 ![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(1).png)
+![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(2).png)
+![alt text](https://github.com/mdnanh/VisualQuestionAnswering/blob/main/images/1%20(3).png)
