@@ -58,9 +58,9 @@ class DollyDataset(Dataset):
         return len(self.annotation)
 
     def process_text(self, ann):
-        instruction = ann["instruction"]
-        context = ann["context"]
-        response = ann["response"]
+        instruction = self.ggtranslate(ann["instruction"])
+        context = '' if ann['context'] == '' else self.ggtranslate(ann["context"])
+        response = self.ggtranslate(ann["response"])
         instruction = self.prompter(instruction=instruction, input=context)
         return dict(instruction=instruction, answer=response)
 

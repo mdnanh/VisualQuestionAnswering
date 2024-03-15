@@ -1,4 +1,4 @@
-from .vqa_dataset import VQADataset
+from .vqa_dataset import VQADataset, VQAPrompter
 from transformers import AutoTokenizer
 from collections import defaultdict
 import random
@@ -10,7 +10,7 @@ class VlspDataset(VQADataset):
     def __init__(
         self,
         tokenizer,
-        ann_path,
+        ann_paths,
         vis_processor=None,
         vis_root=None,
         add_eos=True,
@@ -19,11 +19,12 @@ class VlspDataset(VQADataset):
     ):
         self.tokenizer: AutoTokenizer = tokenizer
         self.vis_root = vis_root
-        self.info = json.load(open(ann_path, "r"))
+        self.info = json.load(open(ann_paths, "r", encoding= 'utf8'))
         self.annotations= self.info['annotations']
         self.images= self.info['images']
         self.annotation=[self.annotations[key] for key in self.annotations.keys()]
-		
+        self.prompter= VQAPrompter()
+
         self.sample_image = sample_image
         if self.sample_image:
             print("randomly sample one annotation for each image")
