@@ -1,19 +1,4 @@
 visual_datasets = [
-    # dict(
-    #     type="llava",
-    #     vis_root="data/coco/train2017",
-    #     ann_paths=[
-    #         "data/llava/detail_23k.json",
-    #         "data/llava/complex_reasoning_77k.json",
-    #     ],
-    # ),
-    # dict(
-    #     type="llava_dial",
-    #     vis_root="data/coco/train2017",
-    #     ann_paths=[
-    #         "data/llava/conversation_58k.json",
-    #     ],
-    # ),
     dict(
         type="aokvqa",
         vis_root="/content/train2017",
@@ -22,30 +7,13 @@ visual_datasets = [
         ],
         sample=5000,
     ),
-    # dict(
-    #     type="minigpt4",
-    #     vis_root="data/cc_sbu_align/image",
-    #     ann_paths=[
-    #         "data/cc_sbu_align/filter_cap.json",
-    #     ],
-    # ),
-    # dict(
-    #     type="coco_caption",
-    #     vis_root="data/coco",
-    #     ann_paths=[
-    #         "data/coco/annotations/coco_karpathy_train_converted.json",
-    #         "data/coco/annotations/coco_karpathy_val.json",
-    #     ],
-    #     sample=512,
-    # ),
-    # dict(
-    #     type="ocr_vqa",
-    #     vis_root="data/OCR_VQA/image",
-    #     ann_paths=[
-    #         "data/OCR_VQA/downloaded_dataset.json",
-    #     ],
-    #     sample=512,
-    # ),
+    dict(
+        type="vlsp",
+        vis_root="./training-data/training-images",
+        ann_paths= 
+          "./Fim1/data/vlsp2023_train_data.json",
+        sample=10,
+    ),
 ]
 
 # language_datasets = [
