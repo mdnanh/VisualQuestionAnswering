@@ -359,21 +359,25 @@ def train_one_epoch(
 
         #### LANGUAGE FORWARD PASS ####
         if language_dataloader is not None:
-            batch_lang = next(language_dataloader)
-            lang_input_ids = batch_lang["input_ids"].to(device, dtype=cast_dtype, non_blocking=True)
-            lang_attention_mask = batch_lang["attention_mask"].to(device, dtype=cast_dtype, non_blocking=True)
-            lang_labels = batch_lang["labels"].to(device, dtype=cast_dtype, non_blocking=True)
+            try:
+                #print('Language')
+                batch_lang = next(language_dataloader)
+                lang_input_ids = batch_lang["input_ids"].to(device, dtype=cast_dtype, non_blocking=True)
+                lang_attention_mask = batch_lang["attention_mask"].to(device, dtype=cast_dtype, non_blocking=True)
+                lang_labels = batch_lang["labels"].to(device, dtype=cast_dtype, non_blocking=True)
 
-            with autocast():
-                lang_loss_batch = model(
-                    vision_x=None,
-                    lang_x=lang_input_ids,
-                    attention_mask=lang_attention_mask,
-                    labels=lang_labels,
-                )[0]
-            lang_loss = lang_loss_batch / args.gradient_accumulation_steps
-            #### BACKWARD PASS ####
-            lang_loss.backward()
+                with autocast():
+                    lang_loss_batch = model(
+                        vision_x=None,
+                        lang_x=lang_input_ids,
+                        attention_mask=lang_attention_mask,
+                        labels=lang_labels,
+                    )[0]
+                lang_loss = lang_loss_batch / args.gradient_accumulation_steps
+                #### BACKWARD PASS ####
+                lang_loss.backward()
+            except StopIteration:
+                language_dataloader = None
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
 
         # step optimizer and log
