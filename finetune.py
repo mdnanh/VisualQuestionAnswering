@@ -101,7 +101,7 @@ def main():
     )
     parser.add_argument(
         "--wandb_key",
-        default= "746a013b7795d834617c193dcba4abc46fe5126e",
+        default= None,
         type=str,
     )
     parser.add_argument(
