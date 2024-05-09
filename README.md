@@ -28,6 +28,6 @@ Mô hình được đào tạo dựa trên kiến trúc của mô hình đa phư
                    --dataset_config {YOUR_DATACONFIG_PATH} \
                    --tuning_config {YOUR_LORACONFIG_PATH} \
                    --report_to_wandb \
-                   --wandb_project wandb_project\
+                   --wandb_project {NAME_WANDB_PROJECT}\
                    --pretrained_path {YOUR_PRETRAINOPENFLAMINGO_PATH}
 ```
